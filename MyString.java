@@ -45,26 +45,19 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) 
     {
-        if(str1.length()<str2.length())
-        {
-            for(int i=0; i<=str2.length()-str1.length(); i++)
-            {
-                boolean r=true;
-                    for(int j=0; j<str1.length(); j++)
-                    {
-                        if(str2.charAt(i+j)!=str1.charAt(j))
-                        {
-                            r=false;
-                            break;
-                        }
-                    }
-                if(r)
+            int index = 0;  
+            for (int i = 0; i < str2.length(); i++)
+             {
+                if (str2.charAt(i) == str1.charAt(index)) 
                 {
-                    return true;
+                    index++; 
+                }
+                if (index == str1.length()) 
+                {
+                    return true;  
                 }
             }
-        } 
-    return false;
+            return false;  
     }
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
@@ -133,6 +126,7 @@ public class MyString {
              if(str1.charAt(i)==str2.charAt(j))
              {
                 f=true;
+                str2 = str2.substring(0, j) + str2.substring(j + 1);
                 break;
              }
           }
