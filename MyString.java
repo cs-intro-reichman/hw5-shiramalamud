@@ -45,32 +45,20 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) 
     {
-        int count=0;
-        if(str1.length()==0)
-        {
+        if (str1.length() == 0) {
             return true;
         }
-            int index = 0;  
-            for (int i = 0; i < str2.length(); i++)
-             {
-                if(index<str1.length())
-                {
-                    if (str2.charAt(i) == str1.charAt(index)) 
-                    {
-                        count++; 
-                    }
-                    index++;
-                    if (count == str1.length()) 
-                    {
-                        return true;  
-                    }
-                }
-                else
-                {
-                    break;
-                }
+    
+        int index1 = 0;
+        for (int i = 0; i < str2.length(); i++) {
+            if (str2.charAt(i) == str1.charAt(index1)) {
+                index1++;
             }
-            return false;  
+            if (index1 == str1.length()) {
+                return true;
+            }
+        }
+        return false; 
     }
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
