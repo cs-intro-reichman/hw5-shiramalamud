@@ -45,28 +45,8 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) 
     {
-        if(str1.length()<str2.length())
-        {
-            for(int i=0; i<=str2.length()-str1.length(); i++)
-            {
-                boolean r=true;
-                    for(int j=0; j<str1.length(); j++)
-                    {
-                        if(str2.charAt(j+i)!=str1.charAt(j))
-                        {
-                            r=false;
-                            break;
-                        }
-                    }
-                if(r)
-                {
-                    return true;
-                }
-            }
-        } 
-    return false;
+        return str2.contains(str1);
     }
-
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
      * for the last character. 
@@ -105,14 +85,13 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) 
     {
-        String random="";
+        StringBuilder str = new StringBuilder();
         for(int i=0; i<n; i++)
         {
-            int newc=(int)(Math.random()*26);
-            char c=(char)(newc+97);
-            random+=newc;
+            int newc=(int)((Math.random()*26)+97);
+            str.append(newc);
         }
-        return random;
+        return str.toString();
     }
 
     /**
@@ -130,7 +109,7 @@ public class MyString {
        for(int i=0; i<str1.length(); i++)
         {
           boolean f=false;
-          for(int j=0; i<str2.length(); i++)
+          for(int j=0; j<str2.length(); i++)
           {
              if(str1.charAt(i)==str2.charAt(j))
              {
