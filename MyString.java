@@ -49,13 +49,17 @@ public class MyString {
             return true;
         }
     
-        int index1 = 0;
-        for (int i = 0; i < str2.length(); i++) {
-            if (str2.charAt(i) == str1.charAt(index1)) {
-                index1++;
-            }
-            if (index1 == str1.length()) {
-                return true;
+        int count = 0;
+        for (int i = 0; i < str2.length(); i++) 
+        {
+            for(int j=0;j<str1.length(); j++)
+            {
+                if (str2.charAt(i) == str1.charAt(j)) {
+                    count++;
+                }
+                if (count == str1.length()) {
+                    return true;
+                }
             }
         }
         return false; 
