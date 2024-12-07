@@ -45,6 +45,7 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) 
     {
+        int count=0;
         if(str1.length()==0)
         {
             return true;
@@ -54,9 +55,10 @@ public class MyString {
              {
                 if (str2.charAt(i) == str1.charAt(index)) 
                 {
-                    index++; 
+                    count++; 
                 }
-                if (index == str1.length()) 
+                index++;
+                if (count == str1.length()) 
                 {
                     return true;  
                 }
