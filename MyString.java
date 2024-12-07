@@ -45,16 +45,20 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) 
     {
+        if(str1.length()==0)
+        {
+            return true;
+        }
             int index = 0;  
             for (int i = 0; i < str2.length(); i++)
              {
                 if (str2.charAt(i) == str1.charAt(index)) 
                 {
                     index++; 
-                }
-                if (index == str1.length()) 
-                {
-                    return true;  
+                    if (index == str1.length()) 
+                    {
+                        return true;  
+                    }
                 }
             }
             return false;  
