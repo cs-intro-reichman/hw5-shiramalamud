@@ -53,14 +53,21 @@ public class MyString {
             int index = 0;  
             for (int i = 0; i < str2.length(); i++)
              {
-                if (str2.charAt(i) == str1.charAt(index)) 
+                if(index<str1.length())
                 {
-                    count++; 
+                    if (str2.charAt(i) == str1.charAt(index)) 
+                    {
+                        count++; 
+                    }
+                    index++;
+                    if (count == str1.length()) 
+                    {
+                        return true;  
+                    }
                 }
-                index++;
-                if (count == str1.length()) 
+                else
                 {
-                    return true;  
+                    break;
                 }
             }
             return false;  
