@@ -54,8 +54,16 @@ public class MyString {
         {
             for(int j=0;j<str1.length(); j++)
             {
-                if (str2.charAt(i) == str1.charAt(j)) {
-                    count++;
+                if (str2.charAt(i) == str1.charAt(j)) 
+                {
+                    if(countChar(str2,str2.charAt(i))==countChar(str1,str1.charAt(j)))
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
                 if (count == str1.length()) {
                     return true;
