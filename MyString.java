@@ -55,10 +55,10 @@ public class MyString {
                 if (str2.charAt(i) == str1.charAt(index)) 
                 {
                     index++; 
-                    if (index == str1.length()) 
-                    {
-                        return true;  
-                    }
+                }
+                if (index == str1.length()) 
+                {
+                    return true;  
                 }
             }
             return false;  
