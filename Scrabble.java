@@ -147,6 +147,7 @@ public class Scrabble {
 				    scoreword+=wordScore(input);
 					allscore+=scoreword;
 					System.out.println(input+" earned "+scoreword+" points. score: "+allscore+" points.");
+					System.out.println();
 				}
 				else
 				{
