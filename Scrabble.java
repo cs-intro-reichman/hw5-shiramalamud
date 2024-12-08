@@ -55,6 +55,14 @@ public class Scrabble {
 			{
 				return true;
 			}
+			else
+			{
+				word = word.toUpperCase();
+				if ((word.equals(DICTIONARY[i])))
+			    {
+				return true;
+			    }
+			}
 		}
 		return false;
 	}
