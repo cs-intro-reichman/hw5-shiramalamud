@@ -49,28 +49,20 @@ public class MyString {
             return true;
         }
     
-        int count = 0;
-        for (int i = 0; i < str2.length(); i++) 
-        {
-            for(int j=0;j<str1.length(); j++)
-            {
-                if (str2.charAt(i) == str1.charAt(j)) 
-                {
-                    if(countChar(str2,str2.charAt(i))==countChar(str1,str1.charAt(j)))
-                    {
-                        count++;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                if (count == str1.length()) {
-                    return true;
-                }
-            }
+        int[] charCount = new int[26];
+        for (int i = 0; i < str2.length(); i++) {
+            char c = str2.charAt(i);
+            charCount[c - 'a']++;
         }
-        return false; 
+        for (int i = 0; i < str1.length(); i++) {
+            char c = str1.charAt(i);
+            if (charCount[c - 'a'] == 0) {
+                return false;
+            }
+            charCount[c - 'a']--;
+        }
+    
+        return true;
     }
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
