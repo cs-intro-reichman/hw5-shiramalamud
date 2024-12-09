@@ -145,7 +145,7 @@ public class Scrabble {
 				}
 				else
 				{
-					System.out.println("No such word in the dictionaty. try again");
+					System.out.println("No such word in the dictionary. try again.");
 				}
 			}
 		}
