@@ -49,21 +49,25 @@ public class Scrabble {
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word)
 	 {
-		for(int i=0; i<NUM_OF_WORDS; i++)
+		if(NUM_OF_WORDS==0)
 		{
-			if ((word.equals(DICTIONARY[i])))
+			In in=new In (WORDS_FILE);
+		while(!in.isEmpty())
+		{
+			DICTIONARY[NUM_OF_WORDS++]= in.readString().toLowerCase();
+		}
+	   }
+	   for(int i=0; i<NUM_OF_WORDS; i++)
+	   {
+		if(DICTIONARY[i]!=null)
+		{
+			if(DICTIONARY[i].toLowerCase().equals(word))
 			{
 				return true;
-			}
-			else
-			{
-				word = word.toUpperCase();
-				if ((word.equals(DICTIONARY[i])))
-			    {
-				return true;
-			    }
 			}
 		}
+	   }
+
 		return false;
 	}
 	
@@ -144,7 +148,7 @@ public class Scrabble {
 				{
 				    scoreword+=wordScore(input);
 					allscore+=scoreword;
-					System.out.println(input+" earned "+scoreword+" points. score: "+allscore+" points.");
+					System.out.println(input+" earned "+scoreword+" points. score: "+allscore+" points\n");
 					System.out.println();
 					hand=MyString.remove(hand, input);
 				}
