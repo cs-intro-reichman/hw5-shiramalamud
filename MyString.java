@@ -43,35 +43,20 @@ public class MyString {
      * @param str2 - a string
      * @return true is str1 is a subset of str2, false otherwise
      */
-    public static boolean subsetOf(String str1, String str2) 
-    {
-        if (str1.length() == 0) {
-            return true;
-        }
-    
-        int count = 0;
-        for (int i = 0; i < str2.length(); i++) 
+    public static boolean subsetOf(String str1, String str2)
+     {
+        for (int i = 0; i < str1.length(); i++) 
         {
-            for(int j=0;j<str1.length(); j++)
+            char currentChar = str1.charAt(i);
+            if (str2.indexOf(currentChar) == -1) 
             {
-                if (str2.charAt(i) == str1.charAt(j)) 
-                {
-                    if(countChar(str2,str2.charAt(i))==countChar(str1,str1.charAt(j)))
-                    {
-                        count++;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                if (count == str1.length()) {
-                    return true;
-                }
+                return false;
             }
+      
+            str2 = str2.replaceFirst(Character.toString(currentChar), "");
         }
-        return false; 
-    }
+        return true;
+     }
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
      * for the last character. 

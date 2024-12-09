@@ -53,7 +53,7 @@ public class Scrabble {
 	   {
 		if(DICTIONARY[i]!=null)
 		{
-			if((DICTIONARY[i].toLowerCase().equals(word))||(DICTIONARY[i].toUpperCase().equals(word)))
+			if(DICTIONARY[i].toLowerCase().equals(word))
 			{
 				return true;
 			}
