@@ -141,12 +141,13 @@ public class Scrabble {
 			}
 			if(isWordInDictionary(input))
 			{
-				if(MyString.subsetOf(input, hand))
+				if(MyString.subsetOf(hand, input))
 				{
 					hand=MyString.remove(hand, input);
 				    scoreword+=wordScore(input);
 					allscore+=scoreword;
 					System.out.println(input+" earned "+scoreword+" points. score: "+allscore+" points.");
+					System.out.println();
 				}
 				else
 				{
