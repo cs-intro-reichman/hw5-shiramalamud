@@ -45,18 +45,25 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2)
      {
-        for (int i = 0; i < str1.length(); i++) 
+     
+        if(str1=="")
         {
-            char currentChar = str1.charAt(i);
-            if (str2.indexOf(currentChar) == -1) 
-            {
-                return false;
-            }
-      
-            str2 = str2.replaceFirst(Character.toString(currentChar), "");
-        }
         return true;
-     }
+        }
+        char c;
+        int index;
+        for(int i=0;i<str1.length();i++)
+        {
+           c=str1.charAt(i);
+           index= str2.indexOf(c);
+           if(index==-1)
+           {
+               return false;
+           }
+           str2=str2.substring(0, index)+ str2.substring(index+1);
+       }
+       return true;
+  }
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
      * for the last character. 
